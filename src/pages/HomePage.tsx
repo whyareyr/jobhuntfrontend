@@ -84,7 +84,8 @@ export default function HomePage() {
                   >
                     <h3 className="font-medium text-gray-900">{category}</h3>
                     <p className="text-sm text-gray-500 mt-1">
-                      {index * 17 + 42} Jobs Available
+                      {/* {index * 17 + 1000} */}
+                      Jobs Available
                     </p>
                   </motion.div>
                 ))}
