@@ -83,10 +83,7 @@ export default function HomePage() {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <h3 className="font-medium text-gray-900">{category}</h3>
-                    <p className="text-sm text-gray-500 mt-1">
-                      {/* {index * 17 + 1000} */}
-                      Jobs Available
-                    </p>
+                    <p className="text-sm text-gray-500 mt-1">Jobs Available</p>
                   </motion.div>
                 ))}
               </div>

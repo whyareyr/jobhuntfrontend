@@ -4,10 +4,25 @@ import { useStore } from "../../store";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import { cn } from "../../lib/utils";
 import { getVisiblePages } from "../../lib/pagination";
+import { useEffect } from "react";
+import { fetchJobs } from "../../lib/api";
 
 export default function JobsList() {
-  const { filteredJobs, view, setView, isLoading, pagination, setPage } =
-    useStore();
+  const filteredJobs = useStore((state) => state.filteredJobs);
+  const view = useStore((state) => state.view);
+  const setView = useStore((state) => state.setView);
+  const isLoading = useStore((state) => state.isLoading);
+  const pagination = useStore((state) => state.pagination);
+  const setPage = useStore((state) => state.setPage);
+
+  // useEffect(() => {
+  //   if (filteredJobs.length === 0) {
+  //     fetchJobs(); // fetch jobs as soon as component mounts
+  //   }
+  // }, [filteredJobs.length]);
+
+  console.log("isLoading:", isLoading);
+
   const { currentPage, totalPages, pageSize } = pagination;
 
   console.log("JobsList rendered", filteredJobs);

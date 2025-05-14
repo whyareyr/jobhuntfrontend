@@ -28,12 +28,27 @@ export const useStore = create<StoreState>((set, get) => ({
   error: null,
 
   // Fetch all jobs
+  // fetchJobs: async () => {
+  //   set({ isLoading: true, error: null });
+  //   try {
+  //     const jobs = await fetchJobs();
+  //     set({ jobs, filteredJobs: jobs, isLoading: false });
+  //     get().applyFilters();
+  //   } catch (error) {
+  //     set({
+  //       isLoading: false,
+  //       error: error instanceof Error ? error.message : "Failed to fetch jobs",
+  //     });
+  //   }
+  // },
+
   fetchJobs: async () => {
     set({ isLoading: true, error: null });
     try {
       const jobs = await fetchJobs();
-      set({ jobs, filteredJobs: jobs, isLoading: false });
+      set({ jobs, filteredJobs: jobs }); // keep isLoading out
       get().applyFilters();
+      set({ isLoading: false }); // now turn it off
     } catch (error) {
       set({
         isLoading: false,
